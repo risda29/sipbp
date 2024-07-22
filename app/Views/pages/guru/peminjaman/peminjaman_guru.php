@@ -23,13 +23,13 @@
         </div>
         <?php if (session('pesan')) : ?>
             <div class="card bg-gradient-primary">
-                <!-- /.card-header -->
+              
                 <div class="card-body">
                     <?php echo session('pesan') ?>
                 </div>
-                <!-- /.card-body -->
+              
             </div>
-            <!-- /.card -->
+          
         <?php endif; ?>
 
         <table class="table">
@@ -61,7 +61,7 @@
                             <?php endforeach; ?>
                         </td>
                         <td>
-                            <a href="/guru/peminjaman/edit/<?= $item['id_peminjaman']; ?>" type="button" class="btn btn-info justify-content-end text-white">Edit</a>
+                            <!-- <a href="/guru/peminjaman/edit/<?= $item['id_peminjaman']; ?>" type="button" class="btn btn-info justify-content-end text-white">Edit</a> -->
                             <a href="/guru/peminjaman/hapus/<?= $item['id_peminjaman']; ?>" class="btn btn-danger">Hapus</a>
                         </td>
                     </tr>

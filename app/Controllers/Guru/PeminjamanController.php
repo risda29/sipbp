@@ -111,38 +111,38 @@ class PeminjamanController extends BaseController
         return redirect()->to('/guru/peminjaman');
     }
 
-    public function edit($id_peminjaman)
-    {
-        $data = [
-            'page' => 'edit',
-            'peminjaman' => $this->BarangPeminjamanModel->join('peminjaman', 'barang_peminjaman.id_barang_peminjaman = barang_peminjaman.id_barang_peminjaman')->join('pengguna','peminjaman.id_pengguna = pengguna.id_pengguna')->first($id_peminjaman),
-            'kelas' => $this->KelasModel->findAll(),
-            'barang' => $this->BarangModel->where('stok_barang !=', 0)->findAll(),
-            'pengguna' => $this->PenggunaModel->where('level =', 'guru')->findAll(),
-        ];
+    // public function edit($id_peminjaman)
+    // {
+    //     $data = [
+    //         'page' => 'edit',
+    //         'peminjaman' => $this->BarangPeminjamanModel->join('peminjaman', 'barang_peminjaman.id_barang_peminjaman = barang_peminjaman.id_barang_peminjaman')->join('pengguna','peminjaman.id_pengguna = pengguna.id_pengguna')->first($id_peminjaman),
+    //         'kelas' => $this->KelasModel->findAll(),
+    //         'barang' => $this->BarangModel->where('stok_barang !=', 0)->findAll(),
+    //         'pengguna' => $this->PenggunaModel->where('level =', 'guru')->findAll(),
+    //     ];
 
-        return view('pages/guru/peminjaman/edit', $data);
-    }
+    //     return view('pages/guru/peminjaman/edit', $data);
+    // }
 
-    public function hapus($id_peminjaman)
-    {
-        $this->PeminjamanModel->delete($id_peminjaman);
+    // public function hapus($id_peminjaman)
+    // {
+    //     $this->PeminjamanModel->delete($id_peminjaman);
 
-        return redirect()->to('guru/peminjaman')->with('pesan', 'Data berhasil dihapus');
-    }
+    //     return redirect()->to('guru/peminjaman')->with('pesan', 'Data berhasil dihapus');
+    // }
 
-    public function update($id_peminjaman)
-    {
-         $inputpeminjaman = $this->request->getVar();
-        $inputBarang = $this->request->getVar('id_barang');
+    // public function update($id_peminjaman)
+    // {
+    //      $inputpeminjaman = $this->request->getVar();
+    //     $inputBarang = $this->request->getVar('id_barang');
         
-        $data = [
-            'tanggal_peminjaman' => $this->request->getVar('tanggal_peminjaman'),
-            'tenggat_peminjaman' => $this->request->getVar('tenggat_peminjaman'),
-            'id_kelas' => $this->request->getVar('id_kelas'),
-        ];
-        $this->PeminjamanModel->update($id_peminjaman, $data);
+    //     $data = [
+    //         'tanggal_peminjaman' => $this->request->getVar('tanggal_peminjaman'),
+    //         'tenggat_peminjaman' => $this->request->getVar('tenggat_peminjaman'),
+    //         'id_kelas' => $this->request->getVar('id_kelas'),
+    //     ];
+    //     $this->PeminjamanModel->update($id_peminjaman, $data);
 
-        return redirect()->to('guru/peminjaman')->with('pesan', 'Data berhasil diupdate');
-    }
+    //     return redirect()->to('guru/peminjaman')->with('pesan', 'Data berhasil diupdate');
+    // }
 }

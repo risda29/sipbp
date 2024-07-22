@@ -1,6 +1,5 @@
 <?= $this->extend('template/template-admin') ?>
 <?= $this->section('content') ?>
-<!-- Content Header (Page header) -->
 <div class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
@@ -24,13 +23,10 @@
         </div>
         <?php if (session('pesan')) : ?>
             <div class="card bg-gradient-primary">
-                <!-- /.card-header -->
                 <div class="card-body">
                     <?php echo session('pesan') ?>
                 </div>
-                <!-- /.card-body -->
             </div>
-            <!-- /.card -->
         <?php endif; ?>
         <table class="table">
             <thead>
@@ -41,31 +37,26 @@
                     <th scope="col">Nama Barang</th>
                     <th scope="col">Kondisi</th>
                     <th scope="col">Aksi</th>
-
                 </tr>
             </thead>
             <tbody>
             <?php $i = 1 ?>
             <?php foreach($barang as $item) : ?>
-                <tr>
-                    <th scope="row"><?php echo $i++ ?></th>
-                    <td><?php echo $item['kode_barang_master'] ?></td>
-                    <td><?php echo $item['kode_barang'] ?></td>
-                    <td><?php echo $item['nama_barang'] ?></td>
-                    <td><?php echo $item['kondisi_barang'] ?></td>
-  
-                    <td>
-                        <a href="/admin/barang/hapus/<?php echo $item['id_barang'] ?>" class="btn 
-                    btn-danger">Hapus</a>
-
-                    </td>
-                </tr>
-                <?php endforeach ?>
+                <?php if ($item['stok_barang'] > 0) : ?>
+                    <tr>
+                        <th scope="row"><?php echo $i++ ?></th>
+                        <td><?php echo $item['kode_barang_master'] ?></td>
+                        <td><?php echo $item['kode_barang'] ?></td>
+                        <td><?php echo $item['nama_barang'] ?></td>
+                        <td><?php echo $item['kondisi_barang'] ?></td>
+                        <td>
+                            <a href="/admin/barang/hapus/<?php echo $item['id_barang'] ?>" class="btn btn-danger">Hapus</a>
+                        </td>
+                    </tr>
+                <?php endif; ?>
+            <?php endforeach; ?>
             </tbody>
         </table>
-
     </div>
-
 </section>
-<!-- /.content -->
 <?= $this->endSection() ?>

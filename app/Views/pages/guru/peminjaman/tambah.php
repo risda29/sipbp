@@ -5,10 +5,10 @@
         <div class="input-group mb-3">
             <label class="input-group-text" for="peminjam">Peminjam</label>
             <select class="form-select" id="peminjam" name="id_pengguna">
-                <option value="">Nama Peminjam...</option>
-                <?php foreach ($pengguna as $item): ?>
+                <!-- <option value="">Nama Peminjam...</option> -->
+                <!-- <?php foreach ($pengguna as $item): ?> -->
                     <option value="<?php echo $item['id_pengguna'] ?>"><?php echo $item['nama_pengguna'] ?></option>
-                <?php endforeach ?>
+                <!-- <?php endforeach ?> -->
             </select>
         </div>
         <div class="mb-3">

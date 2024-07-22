@@ -8,7 +8,7 @@
                 <h1 class="m-0">Kelola Peminjaman</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
-              
+                <!-- Add any additional header content here -->
             </div><!-- /.col -->
         </div><!-- /.row -->
     </div><!-- /.container-fluid -->
@@ -25,7 +25,7 @@
             <div class="card bg-gradient-primary">
                 <!-- /.card-header -->
                 <div class="card-body">
-                    <?php echo session('pesan') ?>
+                    <?= session('pesan') ?>
                 </div>
                 <!-- /.card-body -->
             </div>
@@ -38,12 +38,11 @@
                     <th scope="col">No</th>
                     <th scope="col">Nip</th>
                     <th scope="col">Nama Peminjam</th>
-                   
                     <th scope="col">Tanggal Peminjaman</th>
                     <th scope="col">Tenggat Peminjaman</th>
                     <th scope="col">Status</th>
                     <th scope="col">Barang</th>
-                    <th scope="col">Aksi</th>
+                    <!-- <th scope="col">Aksi</th> -->
                 </tr>
             </thead>
             <tbody>
@@ -53,7 +52,6 @@
                         <th scope="row"><?= $no++; ?></th>
                         <td><?= $item['nip']; ?></td>
                         <td><?= $item['nama_pengguna']; ?></td>
-                        
                         <td><?= $item['tanggal_peminjaman']; ?></td>
                         <td><?= $item['tenggat_peminjaman']; ?></td>
                         <td><?= $item['status']; ?></td>
@@ -62,10 +60,10 @@
                                 <?= $barang['nama_barang'] . ' (' . $barang['kode_barang'] . ')<br>'; ?>
                             <?php endforeach; ?>
                         </td>
-                        <td>
-                            <a href="/admin/peminjaman/edit/<?= $item['id_peminjaman']; ?>" type="button" class="btn btn-info justify-content-end text-white">Edit</a>
-                            <a href="/admin/peminjaman/hapus/<?= $item['id_peminjaman']; ?>" class="btn btn-danger">Hapus</a>
-                        </td>
+                        <!-- <td>
+                            <a href="/admin/peminjaman/edit/<?= $item['id_peminjaman']; ?>" type="button" class="btn btn-info text-white">Edit</a>
+                            <a href="/admin/peminjaman/hapus/<?= $item['id_peminjaman']; ?>" class="btn btn-danger" onclick="return confirm('Anda yakin ingin menghapus data ini?')">Hapus</a>
+                        </td> -->
                     </tr>
                 <?php endforeach; ?>
             </tbody>
